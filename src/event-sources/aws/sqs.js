@@ -10,7 +10,10 @@ const getRequestValuesFromSqs = ({ event }) => {
   }
 }
 
-const getResponseToSqs = ({ body }) => {
+const getResponseToSqs = ({ body, statusCode, response }) => {
+  if (statusCode > 399) {
+    throw new Error(response.statusMessage)
+  }
   try {
     console.log('SQS response body', body)
     return JSON.parse(body)
