@@ -83,7 +83,7 @@ function configure ({
           log
         })
       } catch (error) {
-        console.error(error)
+        console.log('Response failed', error)
         respondToEventSourceWithError({
           error,
           resolver,
