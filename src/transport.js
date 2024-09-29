@@ -59,10 +59,6 @@ function respondToEventSourceWithError ({
 }) {
   log.error('SERVERLESS_EXPRESS:RESPOND_TO_EVENT_SOURCE_WITH_ERROR', error)
 
-  if (eventSourceName === 'AWS_SQS') {
-    throw error
-  }
-
   if (
     eventSourceName !== 'AWS_ALB' &&
     eventSourceName !== 'AWS_LAMBDA_EDGE' &&
