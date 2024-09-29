@@ -13,7 +13,9 @@ const getRequestValuesFromSqs = ({ event }) => {
 const getResponseToSqs = ({ body }) => {
   try {
     return JSON.parse(body)
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 }
 
 module.exports = {
