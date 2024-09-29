@@ -154,10 +154,10 @@ async function forwardRequestToNodeServer ({
 
   log.debug('SERVERLESS_EXPRESS:FORWARD_REQUEST_TO_NODE_SERVER:REQUEST_VALUES', { requestValues })
   const { request, response } = await getRequestResponse(requestValues)
-  console.log('Response', response)
   await framework.sendRequest({ app, request, response })
   await waitForStreamComplete(response)
   log.debug('SERVERLESS_EXPRESS:FORWARD_REQUEST_TO_NODE_SERVER:RESPONSE', { response })
+  console.log('Response', response)
   forwardResponse({
     binarySettings,
     response,

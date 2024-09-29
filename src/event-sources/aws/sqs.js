@@ -12,9 +12,9 @@ const getRequestValuesFromSqs = ({ event }) => {
 
 const getResponseToSqs = ({ body }) => {
   try {
+    console.log('SQS response body', body)
     return JSON.parse(body)
   } catch (error) {
-    throw error;
   }
 }
 
